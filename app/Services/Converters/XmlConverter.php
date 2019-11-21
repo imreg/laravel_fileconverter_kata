@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Services\Corverters;
+namespace App\Services\Converters;
 
 use App\Entities\Account;
-use App\Services\Corverters\Interfaces\ConverterInterface;
+use App\Services\Converters\Interfaces\ConverterInterface;
 
 class XmlConverter implements ConverterInterface
 {

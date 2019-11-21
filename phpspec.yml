@@ -1,0 +1,11 @@
+---
+formatter.name: pretty
+suites:
+  default:
+    namespace: App
+    psr4_prefix: App
+    spec_prefix: spec
+    spec_path: "%paths.config%/tests"
+    src_path: "%paths.config%/app"
+    composer_suite_detection: true
+...

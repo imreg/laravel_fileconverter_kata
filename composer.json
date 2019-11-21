@@ -19,12 +19,15 @@
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.5"
+        "phpspec/phpspec": "^5.1",
+        "phpunit/phpunit": "^7.5",
+        "squizlabs/php_codesniffer": "^3.5"
     },
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "extra": {
         "laravel": {
@@ -57,6 +60,8 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "phpcs": "bin/phpcs -p --standard=PSR2 --ignore=vendor ./app",
+        "phpcbf": "bin/phpcbf -p --standard=PSR2 --ignore=vendor ./app"
     }
 }

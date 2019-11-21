@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Services\FileManagers;
 
-use App\Services\Corverters\Interfaces\ConverterInterface;
+use App\Services\Converters\Interfaces\ConverterInterface;
 use App\Services\FileManagers\Interfaces\WriterInterface;
 use App\Services\Files\Interfaces\FileInterface;
 

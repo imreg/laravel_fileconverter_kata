@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Corverters\Interfaces;
+namespace App\Services\Converters\Interfaces;
 
 use Illuminate\Filesystem\Filesystem;
 

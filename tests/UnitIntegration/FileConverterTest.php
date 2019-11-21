@@ -5,9 +5,9 @@ namespace Tests\UnitIntegration;
 
 use App\Entities\Account;
 use App\Services\Containers\Details;
-use App\Services\Corverters\CsvConverter;
-use App\Services\Corverters\JsonConverter;
-use App\Services\Corverters\XmlConverter;
+use App\Services\Converters\CsvConverter;
+use App\Services\Converters\JsonConverter;
+use App\Services\Converters\XmlConverter;
 use App\Services\FileManagers\Reader;
 use App\Services\FileManagers\Writer;
 use App\Services\Files\File;
