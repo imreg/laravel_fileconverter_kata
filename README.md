@@ -16,7 +16,7 @@
 composer install
 ```
 
-##### 2. Step
+##### 2. Run
 ###### 2.1 Execute
 ```
 php artisan file:convert
