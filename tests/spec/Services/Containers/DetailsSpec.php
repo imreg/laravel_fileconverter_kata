@@ -25,6 +25,6 @@ class DetailsSpec extends ObjectBehavior
 
     function it_returns_true_after_save_content()
     {
-        
+
     }
 }
