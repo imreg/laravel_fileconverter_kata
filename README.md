@@ -25,5 +25,9 @@ php artisan file:convert
 ##### 3. Test
 ###### 3.1 Integration Test
 ```
-vendor/phpunit/phpunit/phpunit
+bin/phpunit
+```
+###### 3.2 Function Test
+```
+bin/phpspec run
 ```
