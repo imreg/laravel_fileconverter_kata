@@ -11,7 +11,19 @@
 #### Steps
 
 ##### 1. Initial steps
-###### 1.1 Deploy source 
+###### 1.1 Deploy docker & execute
+```
+docker-compose up -d
+```
+
+###### 1.2 Enter in docker 
+This step should be just in this small task done and not in daily practic
+```
+docker exec -it laravel-app /bin/bash
+```
+
+
+###### 1.3 Deploy packages
 ```
 composer install
 ```
