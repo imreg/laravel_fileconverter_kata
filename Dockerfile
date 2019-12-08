@@ -34,13 +34,14 @@ unzip \
         g++ \
         autoconf \
         libc-dev \
-        pkg-config \ 
+        pkg-config \
     && pecl install redis \
     && pecl install geoip-1.1.1 \
     && pecl install apcu \
     && pecl install memcached \
     && pecl install timezonedb \
-    && pecl install grpc
+    && pecl install grpc \
+    && pecl install xdebug
 
 # 2. apache configs + document root
 RUN echo "ServerName laravel-app.local" >> /etc/apache2/apache2.conf
@@ -66,11 +67,22 @@ RUN docker-php-ext-install \
     pdo_mysql \
     zip
 
-RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-webp-dir=/usr/include/ --with-jpeg-dir=/usr/include/  
+RUN docker-php-ext-configure gd --with-gd --with-freetype-dir=/usr/include/ --with-webp-dir=/usr/include/ --with-jpeg-dir=/usr/include/
 RUN docker-php-ext-configure zip --with-libzip
 RUN docker-php-ext-install gd calendar gmp ldap sysvmsg pcntl iconv bcmath xml mbstring pdo tidy gettext intl pdo_mysql mysqli simplexml xml xsl xmlwriter zip opcache exif sockets
 RUN docker-php-ext-enable redis geoip apcu memcached timezonedb grpc
-    
+RUN docker-php-ext-enable xdebug
+
+RUN echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_connect_back=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.idekey=PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "xdebug.remote_host=172.17.0.1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+
 # 5. composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

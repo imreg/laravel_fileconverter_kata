@@ -12,6 +12,8 @@ services:
     environment:
       - APACHE_RUN_USER=#1000
       - APACHE_RUN_GROUP=#1000
+      - XDEBUG_CONFIG=remote_host=172.17.0.1
+      - PHP_IDE_CONFIG=serverName=localhost
     volumes:
       - .:/var/www/html
     networks:
